@@ -1,11 +1,14 @@
 #Cyril
-Extension of Sean Corfield's excellent FW/1 
+~~Extension~~ Bastard child of Sean Corfield's excellent [FW/1](https://github.com/seancorfield/fw1) framework
 
-####Views
+Cyril is my attempt to consolidate a lot of the features and patterns that I often use when building a web application.
+It might not be to your taste, but thats ok, we can't all be right ;)
 
-View rendering is isolated from the framework, and are no longer rendered directly from Application.cfc. 
-The main change this brings is you now only have access to the framework's public api from within a view, 
-and the framework is injected into the view as 'fw'. 
+####View Rendering
+
+View rendering in Cyril is isolated from the framework, and views are no longer rendered directly from Application.cfc. 
+The main change this brings is you now only have access to the framework's public api from within a view via the `fw` 
+variable that is injected into views. For example to use the buildUrl function you would write
 
 ```
 <a href="#fw.buildUrl('my.action')#">link</a>
