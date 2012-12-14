@@ -55,6 +55,8 @@ component extends="net.m0nk3y.cyril.framework" {
 		cacheFileExists = false,
 		// change this if you need multiple FW/1 applications in a single CFML application:
 		applicationKey = 'org.corfield.framework'
+		// directory containing view helper cfcs
+		helperDirectory =  getDirectoryFromPath( CGI.SCRIPT_NAME ) & "helpers"
 	};
 	*/
 	
