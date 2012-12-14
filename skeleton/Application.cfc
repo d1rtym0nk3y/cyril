@@ -56,6 +56,8 @@ component extends="net.m0nk3y.cyril.framework" {
 		// change this if you need multiple FW/1 applications in a single CFML application:
 		applicationKey = 'org.corfield.framework'
 		// directory containing view helper cfcs
+		// Helper cfcs should be be suffixed with Helper, e.g AjaxHelper.cfc
+		// It will then be available in a view as helpers.ajax
 		helperDirectory =  getDirectoryFromPath( CGI.SCRIPT_NAME ) & "helpers"
 	};
 	*/
