@@ -1,4 +1,4 @@
-component extends="org.corfield.framework" {
+component extends="fw1.framework" {
 
 	variables._renderer = new template.Renderer();
 
