@@ -9,20 +9,20 @@ component extends="fw1.framework" {
 		super.setupRequestDefaults(argumentCollection=arguments);
 	}
 	
-	public any function onApplicationStart() {
-		super.onApplicationStart();
+	
+	public any function setupApplicationWrapper() {
+		super.setupApplicationWrapper();
 		setupHelpers();
 	}
 	
 	
 	private function setupHelpers() {
-		application[ variables.framework.applicationKey ].helpers = {};
 		var helpers = new helper.HelperFactory(variables.framework.helperDirectory).getAllHelpers();
 		if(hasDefaultBeanFactory()) {
 			for(var h in helpers) {
-				autowire( h, getBeanFactory());
+				autowire( helpers[h], getBeanFactory() );
 			}
-		}
+		}	
 		application[ variables.framework.applicationKey ].helpers = helpers; 
 	}
 	
