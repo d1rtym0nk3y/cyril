@@ -58,4 +58,16 @@
 		return scope;
 	}
 
+
+	function addMessage(string message) {
+		_get("__flash_message_stack", []).append(message);
+		return this;
+	}
+	
+	function getMessages(boolean clear=true) {
+		var msgs = _get("__flash_message_stack", []);
+		if(clear) _set("__flash_message_stack", []);
+		return msgs;
+	}	
+	
 }

@@ -2,10 +2,16 @@ component extends="fw1.framework" {
 
 	variables._renderer = new template.Renderer();
 
+	public void function redirect( string action, string preserve = '', string append = 'none', string path = variables.magicBaseURL, string queryString = '', string statusCode = '302' ) {
+		arguments.preserve = listAppend(arguments.preserve, "__flash_message_stack");
+		super.redirect(argumentCollection=arguments);
+	}
+
 	private void function setupRequestDefaults( string targetPath ) {
 		if(!structKeyExists(request, 'context')) {
 			request.context = new request.Context();
 		}
+		this.helpers = application[ variables.framework.applicationKey ].helpers;
 		super.setupRequestDefaults(argumentCollection=arguments);
 	}
 	
