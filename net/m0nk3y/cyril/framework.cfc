@@ -11,7 +11,11 @@ component extends="fw1.framework" {
 		if(!structKeyExists(request, 'context')) {
 			request.context = new request.Context();
 		}
-		this.helpers = application[ variables.framework.applicationKey ].helpers;
+		
+		if(structKeyExists(application, variables.framework.applicationKey)) {
+			this.helpers = application[ variables.framework.applicationKey ].helpers;
+		}
+		
 		super.setupRequestDefaults(argumentCollection=arguments);
 	}
 	
