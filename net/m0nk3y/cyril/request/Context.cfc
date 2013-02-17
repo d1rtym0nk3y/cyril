@@ -59,8 +59,8 @@
 	}
 
 
-	function addMessage(string message) {
-		_get("__flash_message_stack", []).append(message);
+	function addMessage(string message, string type="info") {
+		_get("__flash_message_stack", []).append({type:type, message:message});
 		return this;
 	}
 	
