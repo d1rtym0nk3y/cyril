@@ -48,6 +48,11 @@ component extends="fw1.framework" {
 		return application[ variables.framework.applicationKey ].helpers;
 	}
 
+
+	public string function layout( string path, string body='' ) {
+		return super.layout(argumentCollection=arguments);
+	}
+
 	private string function internalLayout( string layoutPath, string body ) {
 		var rc = request.context;
 		var $ = { };
