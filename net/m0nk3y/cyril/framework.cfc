@@ -93,4 +93,15 @@ component extends="fw1.framework" {
 		} 
 	}
 
+	private void function injectFramework( any cfc ) {
+		var args = { };
+		if ( structKeyExists( cfc, 'setFramework' ) || structKeyExists( cfc, 'onMissingMethod' ) ) {
+			args.framework = this;
+			// allow alternative spellings
+			args.fw = this;
+			args.fw1 = this;
+			evaluate( 'cfc.setFramework( argumentCollection = args )' );
+		}
+	}	
+
 }   
